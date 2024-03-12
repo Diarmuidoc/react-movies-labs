@@ -11,7 +11,6 @@ import SiteHeader from './components/siteHeader'
 const App = () => {
   return (
     <BrowserRouter>
-       <BrowserRouter>
       <SiteHeader />
       <Routes>
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
@@ -19,14 +18,6 @@ const App = () => {
         <Route path="/movies/:id" element={<MoviePage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={ <Navigate to="/" /> } />
-      </Routes>
-    </BrowserRouter>
-      <Routes>
-        <Route exact path="/movies/favorites" element={<FavoriteMoviesPage />} />
-        <Route path="/movies/:id" element={<MoviePage />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="*" element={ <Navigate to="/" /> } />
-        <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
       </Routes>
     </BrowserRouter>
   );
