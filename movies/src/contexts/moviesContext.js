@@ -1,3 +1,6 @@
+//
+//Exercise 3 lab 8, 
+//
 import React, { useState } from "react";
 
 export const MoviesContext = React.createContext(null);
@@ -5,6 +8,7 @@ export const MoviesContext = React.createContext(null);
 const MoviesContextProvider = (props) => {
   const [favorites, setFavorites] = useState( [] )
   const [myReviews, setMyReviews] = useState( {} )
+  const [watchlist, setWatchlist] = useState( [] )
 
   const addToFavorites = (movie) => {
     let newFavorites = [];
@@ -14,7 +18,8 @@ const MoviesContextProvider = (props) => {
     else{
       newFavorites = [...favorites];
     }
-    setFavorites(newFavorites)
+    console.log(newFavorites);
+    setFavorites(newFavorites);
   };
 
 
@@ -24,6 +29,20 @@ const MoviesContextProvider = (props) => {
   //console.log(myReviews);
 
   
+  const addToWatchlist = (movie) => {
+    let newWatchlist = [];
+    if (!watchlist.includes(movie.id)){
+      newWatchlist = [...favorites, movie.id];
+    }
+    else{
+      newWatchlist = [...favorites];
+    }
+    setWatchlist(newWatchlist);
+    //to check if movies are getting added to watchlist
+    console.log(newWatchlist);
+  };
+
+
   // We will use this function in a later section
   const removeFromFavorites = (movie) => {
     setFavorites( favorites.filter(
@@ -36,6 +55,8 @@ const MoviesContextProvider = (props) => {
       value={{
         favorites,
         addToFavorites,
+        watchlist,
+        addToWatchlist,
         removeFromFavorites,
         addReview,
       }}
