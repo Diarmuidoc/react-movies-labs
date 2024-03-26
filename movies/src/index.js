@@ -10,10 +10,11 @@ import Upcoming from './pages/upcomingPage';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
-import AddMovieReviewPage from './pages/addMovieReviewPage'
+import AddMovieReviewPage from './pages/addMovieReviewPage';
 
 //a1
 import TopRated from './pages/topRatedPage';
+import PeoplePopular from "./pages/peoplePopularPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="*" element={ <Navigate to="/" /> } />
           <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
           <Route path="/movies/topRated" element={<TopRated />} />
+          <Route path="/people/peoplePopular" element={<PeoplePopular />} />
         </Routes>
         </MoviesContextProvider>
       </BrowserRouter>

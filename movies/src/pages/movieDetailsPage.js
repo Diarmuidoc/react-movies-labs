@@ -7,6 +7,8 @@ import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 // import useMovie from "../hooks/useMovie";   Redundant
 
+import { getMovieCredits } from '../api/tmdb-api'
+
 const MoviePage = (props) => {
   const { id } = useParams();
   const { data: movie, error, isLoading, isError } = useQuery(

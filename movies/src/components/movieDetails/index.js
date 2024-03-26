@@ -77,6 +77,28 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       </Paper>
 
 
+
+    {/*A1 adding aditional content */}
+      <Paper 
+        component="ul" 
+        sx={{...root}}
+      >
+        <li>
+          <Chip label="actors" sx={{...chip}} color="primary" />
+        </li>
+        <Chip
+          icon={<StarRate />}
+          label={`${movie.credits} (${movie.vote_count})`}
+        />
+        {/* 
+        {movie.credits.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={{...chip}} />
+          </li>
+        ))}*/}
+      </Paper>
+
+
       
       <Fab
         color="secondary"
