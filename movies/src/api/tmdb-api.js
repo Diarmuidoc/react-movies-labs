@@ -126,7 +126,7 @@ export const getMovie = (args) => {
 
   export const getPeoplePopular = () => {
     return fetch(
-      `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      `https://api.themoviedb.org/3/trending/person/day?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1`
     ).then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);

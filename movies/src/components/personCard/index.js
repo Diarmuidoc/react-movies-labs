@@ -23,7 +23,7 @@ export default function PersonCard({ person, action}) {
        <CardHeader
         title={
           <Typography variant="h5" component="p">
-            {person.title}{" "}
+            {person.name}{" "}
           </Typography>
         }
       />
@@ -31,8 +31,8 @@ export default function PersonCard({ person, action}) {
       <CardMedia
         sx={{ height: 500 }}
         image={
-            person.image
-            ? `https://image.tmdb.org/t/p/w500/${person.image}`
+            person.profile_path
+            ? `https://image.tmdb.org/t/p/w185/${person.profile_path}`
             : img
         }
       />
