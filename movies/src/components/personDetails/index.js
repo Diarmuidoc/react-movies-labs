@@ -12,6 +12,7 @@ import Drawer from "@mui/material/Drawer";
 import { getPersonMovieCredits } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
+import { Link } from "react-router-dom";
 
 
 
@@ -42,7 +43,7 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
     return <h1>{error.message}</h1>;
   }
 
-  const movie_credits = data.cast;
+  const movie_credits = data.cast
   
 
   return (
@@ -55,11 +56,16 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
         {person.name}
       </Typography> 
 
-    <Paper component="ul" sx={{...root}}>
-        <Chip label="Quick Info" sx={{...chip}} color="primary" />
-        <Chip label={`Born ${person.birthday}`} />
-        <Chip label={`From ${person.place_of_birth}`} />
-        <Chip label={`Known for ${person.known_for_department}`} />
+    <Paper 
+        component="ul" 
+        sx={{...root}}
+    >
+        <li>
+            <Chip label="Quick Info" sx={{...chip}} color="primary" />
+            <Chip label={`Born ${person.birthday}`} />
+            <Chip label={`From ${person.place_of_birth}`} />
+            <Chip label={`Known for ${person.known_for_department}`} />
+        </li>
       </Paper>
 
       <Paper 
@@ -70,9 +76,12 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
           <Chip label="Movies" sx={{...chip}} color="primary" />
         </li>
         {movie_credits.map((g) => (
-          <li key={g.title}>
-            <Chip label={g.title} sx={{...chip}} />
-          </li>
+            <li key={g.title}>
+                <Link to={`/movies/${g.id}`}>
+                    <Chip label={g.title} sx={{...chip}} />
+                </Link>
+                </li>
+            
         ))}
         
       </Paper>

@@ -13,7 +13,7 @@ import MovieReviews from "../movieReviews";
 import { getMovieCredits } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
-
+import { Link } from "react-router-dom";
 
 const root = {
     display: "flex",
@@ -106,7 +106,9 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         </li>
         {credits.map((g) => (
           <li key={g.name}>
-            <Chip label={g.name} sx={{...chip}} />
+            <Link to={`/people/${g.id}`}>
+              <Chip label={g.name} sx={{...chip}} />
+            </Link>
           </li>
         ))}
         
