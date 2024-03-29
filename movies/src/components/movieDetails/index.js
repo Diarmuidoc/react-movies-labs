@@ -10,6 +10,9 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
 
+import { getMovieCredits } from "../../api/tmdb-api";
+import { useQuery } from "react-query";
+import Spinner from '../spinner'
 
 
 const root = {
@@ -24,6 +27,21 @@ const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const { data , error, isLoading, isError } = useQuery(
+    ["credits", { id: movie.id }],
+    getMovieCredits
+  );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+
+  const credits = data.cast;
 
   return (
     <>
@@ -84,18 +102,14 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         sx={{...root}}
       >
         <li>
-          <Chip label="actors" sx={{...chip}} color="primary" />
+          <Chip label="Actors" sx={{...chip}} color="primary" />
         </li>
-        <Chip
-          icon={<StarRate />}
-          label={`${movie.credits} (${movie.vote_count})`}
-        />
-        {/* 
-        {movie.credits.map((g) => (
+        {credits.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} sx={{...chip}} />
           </li>
-        ))}*/}
+        ))}
+        
       </Paper>
 
 
