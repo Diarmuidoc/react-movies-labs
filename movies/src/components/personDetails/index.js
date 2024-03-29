@@ -9,6 +9,9 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 
+import { getPersonMovieCredits } from "../../api/tmdb-api";
+import { useQuery } from "react-query";
+import Spinner from '../spinner'
 
 
 
@@ -25,6 +28,21 @@ const chip = { margin: 0.5 };
 const PersonDetails = ({ person }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+
+  const { data , error, isLoading, isError } = useQuery(
+    ["movie_credits", { id: person.id }],
+    getPersonMovieCredits
+  );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+
+  const movie_credits = data.cast;
   
 
   return (
@@ -42,6 +60,21 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
         <Chip label={`Born ${person.birthday}`} />
         <Chip label={`From ${person.place_of_birth}`} />
         <Chip label={`Known for ${person.known_for_department}`} />
+      </Paper>
+
+      <Paper 
+        component="ul" 
+        sx={{...root}}
+      >
+        <li>
+          <Chip label="Movies" sx={{...chip}} color="primary" />
+        </li>
+        {movie_credits.map((g) => (
+          <li key={g.title}>
+            <Chip label={g.title} sx={{...chip}} />
+          </li>
+        ))}
+        
       </Paper>
 {/* 
       <Paper component="ul" sx={{...root}}>
