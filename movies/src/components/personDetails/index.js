@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
-import StarRate from "@mui/icons-material/StarRate";
-import NavigationIcon from "@mui/icons-material/Navigation";
-import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
-import Drawer from "@mui/material/Drawer";
+
 
 import { getPersonMovieCredits } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
@@ -27,7 +22,6 @@ const root = {
 const chip = { margin: 0.5 };
 
 const PersonDetails = ({ person }) => {  // Don't miss this!
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
 
   const { data , error, isLoading, isError } = useQuery(
@@ -53,7 +47,7 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
       </Typography>
 
       <Typography variant="h6" component="p">
-        {person.name}
+        {person.biography}
       </Typography> 
 
     <Paper 
@@ -64,7 +58,6 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
             <Chip label="Quick Info" sx={{...chip}} color="primary" />
             <Chip label={`Born ${person.birthday}`} />
             <Chip label={`From ${person.place_of_birth}`} />
-            <Chip label={`Known for ${person.known_for_department}`} />
         </li>
       </Paper>
 

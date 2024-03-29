@@ -1,26 +1,10 @@
 import React, {} from "react";
 import PersonHeader from "../headerPerson";
 import Grid from "@mui/material/Grid";
-import { getPersonImages } from "../../api/tmdb-api";
-import { useQuery } from "react-query";
-import Spinner from '../spinner'
 import CardMedia from "@mui/material/CardMedia";
 import img from '../../images/film-poster-placeholder.png'
 
 const TemplatePersonPage = ({ person, children }) => {
-  const { data , error, isLoading, isError } = useQuery(
-    ["images", { id: person.id }],
-    getPersonImages
-  );
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  if (isError) {
-    return <h1>{error.message}</h1>;
-  }
-  const images = data.posters 
 
   return (
     <>
