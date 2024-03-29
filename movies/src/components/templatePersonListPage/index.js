@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../headerMovieList";
 //import FilterCard from "../filterMoviesCard";
 import PersonList from "../personList";
@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid";
 
 function PersonListPageTemplate({ people, title, action }) {
 
-  let displayedPeople = people
+  let displayedPeople = people;
     
 
 

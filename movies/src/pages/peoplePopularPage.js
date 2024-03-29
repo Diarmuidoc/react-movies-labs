@@ -7,7 +7,7 @@ import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 
 const PeoplePopular = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('discover', getPeoplePopular)
+  const {  data, error, isLoading, isError }  = useQuery('popular', getPeoplePopular)
 
   if (isLoading) {
     return <Spinner />
@@ -17,6 +17,8 @@ const PeoplePopular = (props) => {
     return <h1>{error.message}</h1>
   }  
   const people = data.results;
+
+  
 
   return (
     <PersonListPageTemplate
