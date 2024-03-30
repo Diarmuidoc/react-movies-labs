@@ -3,7 +3,6 @@ import { getPeoplePopular } from "../api/tmdb-api";
 import PersonListPageTemplate from '../components/templatePersonListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 
 const PeoplePopular = (props) => {
 
@@ -24,9 +23,7 @@ const PeoplePopular = (props) => {
     <PersonListPageTemplate
       title="Popular People"
       people={people}
-      action={(people) => {
-        return <AddToFavoritesIcon people={people} />
-      }}
+      
     />
 );
 };
