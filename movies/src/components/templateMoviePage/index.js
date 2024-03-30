@@ -5,7 +5,9 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { getMovieImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from '../spinner'
+import Spinner from '../spinner';
+
+import Carousel from 'react-material-ui-carousel';
 
 const TemplateMoviePage = ({ movie, children }) => {
   const { data , error, isLoading, isError } = useQuery(
@@ -33,7 +35,21 @@ const TemplateMoviePage = ({ movie, children }) => {
             flexWrap: "wrap",
             justifyContent: "space-around",
           }}>
-            <ImageList 
+
+            
+            <Carousel>
+              {images.map((image) => (
+                    <img
+                    width={'100%'}
+                        src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                        alt={image.poster_path}
+                    />
+                    
+                ))}
+            </Carousel>
+            
+
+            {/* <ImageList 
                 cols={1}>
                 {images.map((image) => (
                     <ImageListItem key={image.file_path} cols={1}>
@@ -43,7 +59,8 @@ const TemplateMoviePage = ({ movie, children }) => {
                     />
                     </ImageListItem>
                 ))}
-            </ImageList>
+            </ImageList> */}
+
           </div>
         </Grid>
 
