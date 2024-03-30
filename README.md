@@ -20,3 +20,8 @@ I also added the cast members to the movie detail page.
 
 I then added a link to the cast members in the movie page, that when you clicked on them, it would bring you to the correct person details page, and then the opposite on the person details page to link you to the movie.
 
+Material ui Carousel has been added for the images on the movie details page to tidy the page up.
+
+Now Playing was also added.
+
+Minor fixes such as spacing, and adding a colour to the movie and actor chips when hovered over

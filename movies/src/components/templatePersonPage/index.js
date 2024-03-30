@@ -1,7 +1,6 @@
 import React, {} from "react";
 import PersonHeader from "../headerPerson";
 import Grid from "@mui/material/Grid";
-import CardMedia from "@mui/material/CardMedia";
 import img from '../../images/film-poster-placeholder.png'
 
 const TemplatePersonPage = ({ person, children }) => {
@@ -17,14 +16,11 @@ const TemplatePersonPage = ({ person, children }) => {
             flexWrap: "wrap",
             justifyContent: "space-around",
           }}>
-            <CardMedia
-                sx={{ height: 500 }}
-                image={
-                    person.profile_path
-                    ? `https://image.tmdb.org/t/p/w185/${person.profile_path}`
-                    : img
-                }
-            />
+            <img
+                    width={'100%'}
+                        src={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
+                        alt={img}
+                    />
           </div>
         </Grid>
 

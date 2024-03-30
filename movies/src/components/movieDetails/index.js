@@ -24,6 +24,9 @@ const root = {
     margin: 0,
 };
 const chip = { margin: 0.5 };
+const chipList = { margin: 0.5,
+                  '&:hover':{backgroundColor:'lightBlue'}
+                 };
 
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -107,7 +110,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         {credits.map((g) => (
           <li key={g.name}>
             <Link to={`/people/${g.id}`}>
-              <Chip label={g.name} sx={{...chip}} />
+              <Chip label={g.name} sx={{...chipList}} />
             </Link>
           </li>
         ))}

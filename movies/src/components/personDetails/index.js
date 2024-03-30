@@ -19,7 +19,11 @@ const root = {
     padding: 1.5,
     margin: 0,
 };
-const chip = { margin: 0.5 };
+const chip = { margin: 0.5,
+                '&:hover':{backgroundColor:'red'}};
+
+const chipList = { margin: 0.5,
+                  '&:hover':{backgroundColor:'lightBlue'}};
 
 const PersonDetails = ({ person }) => {  // Don't miss this!
 
@@ -71,7 +75,7 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
         {movie_credits.map((g) => (
             <li key={g.title}>
                 <Link to={`/movies/${g.id}`}>
-                    <Chip label={g.title} sx={{...chip}} />
+                    <Chip label={g.title} sx={{...chipList}} />
                 </Link>
                 </li>
             

@@ -49,6 +49,7 @@ const TemplateMoviePage = ({ movie, children }) => {
             </Carousel>
             
 
+            {/* old code */}
             {/* <ImageList 
                 cols={1}>
                 {images.map((image) => (

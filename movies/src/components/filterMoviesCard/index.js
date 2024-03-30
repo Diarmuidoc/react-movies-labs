@@ -16,7 +16,7 @@ import Spinner from '../spinner'
 
 const formControl = 
   {
-    margin: 1,
+    margin: 2,
     minWidth: 220,
     backgroundColor: "rgb(255, 255, 255)"
   };
@@ -72,7 +72,7 @@ export default function FilterMoviesCard(props) {
             onChange={handleTextChange}
           />
         <FormControl sx={{...formControl}}>
-          <InputLabel id="genre-label">Genre</InputLabel>
+          <InputLabel id="genre-label" sx={{margin:-1}}>Genre</InputLabel>
           <Select
             labelId="genre-label"
             id="genre-select"
