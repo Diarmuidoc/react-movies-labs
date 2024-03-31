@@ -17,6 +17,11 @@ import TopRated from './pages/topRatedPage';
 import NowPlaying from './pages/nowPlayingPage';
 import PeoplePopular from "./pages/peoplePopularPage";
 import PersonPage from "./pages/personDetailsPage";
+// import Firebase from "./pages/firebasePage";
+// import Layout from './components/firebaseLayout'
+// import Login from './components/firebaseLogin';
+// import SignUp from './components/firebaseSignUp';
+// import Profile from './components/firebaseProfile'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +40,10 @@ const App = () => {
         <SiteHeader />
         <MoviesContextProvider>
         <Routes>
+        {/* <Route path = "/" element = { <Layout /> } />
+            <Route index element = { <Login /> } />
+            <Route path = "/signup" element = { <SignUp /> } />
+            <Route path = "/profile" element = { <Profile /> } /> */}
           <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
           <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
           <Route path="/movies/:id" element={<MoviePage />} />
