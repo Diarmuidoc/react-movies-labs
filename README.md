@@ -25,3 +25,11 @@ Material ui Carousel has been added for the images on the movie details page to 
 Now Playing was also added.
 
 Minor fixes such as spacing, and adding a colour to the movie and actor chips when hovered over
+
+Attempted to add Firebase for authentication, however I was unable to get it working, I have upladed the files that I tried to get working but have commented them out in the routes folder.
+
+As a part of the Firebase tutorial I was following I installed bootstrap to style some of the pages.
+
+The tutorial I used for Firebase was https://hackernoon.com/how-to-set-up-firebase-authentication-with-react along with some youtube tutorials.
+
+I also used TMDBs api guides at https://developer.themoviedb.org/docs/getting-started for the project along with a TMDB API documentation which I found at https://www.postman.com/devrel/workspace/tmdb-api/documentation/13191452-e12a1487-f709-47b4-9f55-c11c8e0daea2 
