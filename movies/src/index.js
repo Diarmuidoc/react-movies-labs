@@ -43,17 +43,7 @@ const App = () => {
         <Header />
         
 
-        <ul>
-            <li>
-              <Link to="/">Public</Link>
-            </li>
-            <li>
-              <Link to="/movies">Movies</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-          </ul>
+        
 
           <MoviesContextProvider>
 
