@@ -23,6 +23,7 @@ import AuthContextProvider from "./contexts/authContext";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import ProtectedRoutes from "./protectedRoutes";
+import MoviesPage from "./pages/moviesPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -40,24 +41,41 @@ const App = () => {
       <BrowserRouter>
       <AuthContextProvider>
         <Header />
-        <MoviesContextProvider>
+        
 
+        <ul>
+            <li>
+              <Link to="/">Public</Link>
+            </li>
+            <li>
+              <Link to="/movies">Movies</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          </ul>
+
+          <MoviesContextProvider>
 
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={ <SignUpPage /> } />
-          <Route element={<ProtectedRoutes />}></Route>
-          <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
-          <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
-          <Route path="/movies/:id" element={<MoviePage />} />
-          <Route path="/movies/upcoming" element={<Upcoming />} />
-          <Route path="/" element={<HomePage />} />
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/movies" element={<MoviesPage />} />
+            <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
+            <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+            <Route path="/movies/:id" element={<MoviePage />} />
+            <Route path="/movies/upcoming" element={<Upcoming />} />
+            <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
+            <Route path="/movies/topRated" element={<TopRated />} />
+            <Route path="/movies/nowPlaying" element={<NowPlaying />} />
+            <Route path="/people/peoplePopular" element={<PeoplePopular />} />
+            <Route path="/people/:id" element={<PersonPage />} />
+          </Route>
+
           <Route path="*" element={ <Navigate to="/" /> } />
-          <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
-          <Route path="/movies/topRated" element={<TopRated />} />
-          <Route path="/movies/nowPlaying" element={<NowPlaying />} />
-          <Route path="/people/peoplePopular" element={<PeoplePopular />} />
-          <Route path="/people/:id" element={<PersonPage />} />
         </Routes>
         </MoviesContextProvider>
         </AuthContextProvider>
