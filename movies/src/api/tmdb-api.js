@@ -58,7 +58,7 @@ export const getMovie = (args) => {
   // };
   export const getGenres = async () => {
     const response = await fetch(
-      'http://localhost:8080/api/genres', {
+      'http://localhost:8080/api/movies/tmdb/genres', {
       headers: {
         'Authorization': window.localStorage.getItem('token')
       }
@@ -110,7 +110,7 @@ export const getMovie = (args) => {
   // };
   export const getUpcoming = async () => {
     const response = await fetch(
-      'http://localhost:8080/api/movies/tmdb/', {
+      'http://localhost:8080/api/movies/tmdb/upcoming', {
       headers: {
         'Authorization': window.localStorage.getItem('token')
       }
