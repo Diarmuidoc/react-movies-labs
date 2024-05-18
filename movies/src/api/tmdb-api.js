@@ -13,7 +13,7 @@
 // };
 export const getMovies = async () => {
     const response = await fetch(
-      'http://localhost:8080/api/movies', {
+      'http://localhost:8080/api/movies/tmdb/movies', {
       headers: {
         'Authorization': window.localStorage.getItem('token')
       }

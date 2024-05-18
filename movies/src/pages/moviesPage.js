@@ -17,10 +17,11 @@ const MoviesPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }  
-  const movies = data;
+  const movies = data.results;
   
 
   // Redundant, but necessary to avoid app crashing.
+  console.log("Hi D " + movies);
   const favorites = movies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
   const addToFavorites = (movieId) => true 
