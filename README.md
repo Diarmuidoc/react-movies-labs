@@ -2,6 +2,18 @@
 
 This repo is for Labs and Assignments in Web App Development 2
 
+## Assignment 2
+
+Completed labs 9 to 12, they are uploaded as wad-api-labs-2024
+
+Added movies-api that was worked on in lab 12 a
+
+Added log in or sign up, making a user log in before accessing any page using route protection.
+
+Made the app request movies through the movies api rather than the tmdb api
+
+
+
 ## Completed Labs
 
 All class labs have been complete up to week 8.
