@@ -63,4 +63,26 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+// router.get('/:id/favourite', async (req, res) => {
+//     const favourites = await User.find();
+//     res.status(200).json(favourites);
+// })
+
+// router.post('/:id/favourite', asyncHandler(async (req, res) => {
+//     try {
+//         if (!req.body.username || !req.body.password) {
+//             return res.status(400).json({ success: false, msg: 'Username and password are required.' });
+//         }
+//         if (req.query.action === 'register') {
+//             await registerUser(req, res);
+//         } else {
+//             await authenticateUser(req, res);
+//         }
+//     } catch (error) {
+//         // Log the error and return a generic error message
+//         console.error(error);
+//         res.status(500).json({ success: false, msg: 'Internal server error.' });
+//     }
+// }));
+
 export default router;
