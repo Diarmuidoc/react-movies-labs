@@ -24,21 +24,36 @@ export const getMovies = async () => {
 
 
   
-export const getMovie = (args) => {
-  // console.log(args)
+// export const getMovie = (args) => {
+//   // console.log(args)
+//   const [, idPart] = args.queryKey;
+//   const { id } = idPart;
+//   return fetch(
+//     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+//   ).then((response) => {
+//     if (!response.ok) {
+//       throw new Error(response.json().message);
+//     }
+//     return response.json();
+//   })
+//   .catch((error) => {
+//     throw error
+//  });
+// };
+
+//Not Working yet
+export const getMovie = async (args) => {
   const [, idPart] = args.queryKey;
   const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-  ).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.json().message);
+
+  const response = await fetch(
+    `http://localhost:8080/api/movies/tmdb/movies/${id}`, {
+    headers: {
+      'Authorization': window.localStorage.getItem('token')
     }
-    return response.json();
-  })
-  .catch((error) => {
-    throw error
- });
+  }
+  )
+  return response.json();
 };
   
   // export const getGenres = async () => {
@@ -123,19 +138,29 @@ export const getMovie = (args) => {
 
 
 
-  //Assignment 1, get top rated
-  export const getTopRated = () => {
-    return fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
-    ).then((response) => {
-      if (!response.ok) {
-        throw new Error(response.json().message);
+
+  // export const getTopRated = () => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+  //   ).then((response) => {
+  //     if (!response.ok) {
+  //       throw new Error(response.json().message);
+  //     }
+  //     return response.json();
+  //   })
+  //   .catch((error) => {
+  //      throw error
+  //   });
+  // };
+  export const getTopRated = async () => {
+    const response = await fetch(
+      'http://localhost:8080/api/movies/tmdb/topRated', {
+      headers: {
+        'Authorization': window.localStorage.getItem('token')
       }
-      return response.json();
-    })
-    .catch((error) => {
-       throw error
-    });
+    }
+    )
+    return response.json();
   };
 
 
