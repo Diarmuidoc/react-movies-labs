@@ -4,13 +4,22 @@ This repo is for Labs and Assignments in Web App Development 2
 
 ## Assignment 2
 
+When running the app, ensure to run both the movies-api (which will run on localhost:8080) and the movies (which will be on localhost:3000) using npm start
+
 Completed labs 9 to 12, they are uploaded as wad-api-labs-2024
 
 Added movies-api that was worked on in lab 12 a
 
 Added log in or sign up, making a user log in before accessing any page using route protection.
 
-Made the app request movies through the movies api rather than the tmdb api
+Signing up adds the user to the mongo atlas db
+
+Made the app request movies through the movies api rather than the tmdb api, original had the discover page display the movies stored in mongodb but I later changed it.
+
+Made the app request as many of the api requests through the movies api rather than the tmdb api, this includes Movies, Genre, Upcoming, TopRated, NowPlaying, PopularPeople
+
+Attempted to add another collection of favourites to mongo atlas, the plan was to have it be user specific favourites but I ran out of time.
+
 
 
 
