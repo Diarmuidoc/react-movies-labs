@@ -21,6 +21,8 @@ app.use('/api/movies/tmdb/movies/:id', moviesRouter);
 app.use('/api/movies/tmdb/genres',authenticate,  moviesRouter);
 app.use('/api/movies/tmdb/upcoming',authenticate,  moviesRouter);
 app.use('/api/movies/tmdb/topRated',authenticate,  moviesRouter);
+app.use('/api/movies/tmdb/nowPlaying',authenticate,  moviesRouter);
+app.use('/api/movies/tmdb/peoplePopular',authenticate,  moviesRouter);
 app.use(defaultErrHandler);
 
 app.listen(port, () => {
